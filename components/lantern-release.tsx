@@ -24,7 +24,7 @@ const EXAMPLES = ['Stress', 'Anxiety', 'Self doubt', 'Fear', 'Overthinking']
 
 type Phase = 'input' | 'rising' | 'complete'
 
-export function LanternRelease() {
+export function LanternRelease({ onComplete }: { onComplete?: () => void } = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [phase, setPhase] = useState<Phase>('input')
   const [thought, setThought] = useState('')
@@ -285,8 +285,8 @@ export function LanternRelease() {
           // Fade out
           state.messageAlpha = Math.max(0, state.messageAlpha - 0.017)
           
-          // Restart
           if (state.messageAlpha <= 0) {
+            if (onComplete) { onComplete(); return }
             setPhase('input')
             setInputValue('')
             setThought('')

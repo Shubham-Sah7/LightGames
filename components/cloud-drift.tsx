@@ -42,7 +42,7 @@ type Cloud = {
   revealAlpha: number
 }
 
-export function CloudDrift() {
+export function CloudDrift({ onComplete }: { onComplete?: () => void } = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [phase, setPhase] = useState<'active' | 'complete'>('active')
   const [messageAlpha, setMessageAlpha] = useState(0)
@@ -223,6 +223,7 @@ export function CloudDrift() {
           setMessageAlpha(prev => Math.max(0, prev - 0.017))
           
           if (messageAlpha <= 0) {
+            if (onComplete) { onComplete(); return }
             // Restart
             setPhase('active')
             const shuffledNegative = [...NEGATIVE_THOUGHTS].sort(() => Math.random() - 0.5)

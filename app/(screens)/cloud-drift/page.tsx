@@ -1,34 +1,17 @@
-import Link from 'next/link'
+'use client'
+
+import { GameShell } from '@/components/game-shell'
 import { CloudDrift } from '@/components/cloud-drift'
 
 export default function CloudDriftPage() {
   return (
-    <div className="relative w-full h-full">
-      <CloudDrift />
-      {/* Back button */}
-      <Link
-        href="/"
-        className="absolute top-4 left-4 z-50 flex items-center justify-center"
-        style={{
-          width: '34px',
-          height: '34px',
-          borderRadius: '50%',
-          background: 'rgba(255,255,255,0.68)',
-          backdropFilter: 'blur(8px)',
-          WebkitBackdropFilter: 'blur(8px)',
-          border: '1px solid rgba(255,255,255,0.85)',
-        } as React.CSSProperties}
-      >
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path
-            d="M10 4L6 8l4 4"
-            stroke="#083F56"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </Link>
-    </div>
+    <GameShell
+      config={{
+        title: 'Cloud Drift',
+        description: 'Touch the clouds to let your worries float away. Watch heavy thoughts dissolve into peace.',
+        completionMessage: "your worries have drifted away",
+      }}
+      renderGame={(onComplete) => <CloudDrift onComplete={onComplete} />}
+    />
   )
 }

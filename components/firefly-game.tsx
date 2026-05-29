@@ -70,8 +70,10 @@ function conPos(idx: number): [number, number] {
 }
 
 // ── Component ────────────────────────────────────────────────────────────────
-export function FireflyGame() {
+export function FireflyGame({ onComplete }: { onComplete?: () => void } = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const onCompleteRef = useRef(onComplete)
+  onCompleteRef.current = onComplete
 
   useEffect(() => {
     const canvas = canvasRef.current!
@@ -431,7 +433,13 @@ export function FireflyGame() {
         // Hold ~4 s then exit
         if (revealTimer > 240) {
           fade = Math.max(0, fade - 0.011)
-          if (fade <= 0) needRestart = true
+          if (fade <= 0) {
+            if (onCompleteRef.current) {
+              onCompleteRef.current()
+            } else {
+              needRestart = true
+            }
+          }
         }
       }
 
