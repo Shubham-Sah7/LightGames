@@ -3,7 +3,7 @@ import Link from 'next/link'
 const GAMES = [
   {
     emoji: '🌧',
-    title: 'Rain Drop Cleanse',
+    title: 'Clear My Mind',
     description: 'Release what no longer serves you',
     href: '/rain-drop-cleanse',
     category: 'RELEASE',
