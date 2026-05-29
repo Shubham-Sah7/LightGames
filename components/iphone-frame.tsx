@@ -45,6 +45,21 @@ export function IPhoneFrame({ children }: { children: React.ReactNode }) {
             position: 'relative',
           }}
         >
+          {/* Dynamic Island */}
+          <div
+            style={{
+              position: 'absolute',
+              top: '12px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: '120px',
+              height: '34px',
+              background: '#111',
+              borderRadius: '999px',
+              zIndex: 100,
+              pointerEvents: 'none',
+            }}
+          />
           {children}
         </div>
       </div>

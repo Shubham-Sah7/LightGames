@@ -89,7 +89,7 @@ export default function Hub() {
         </div>
 
         {/* 2-Column Card Grid */}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-3" style={{ gridAutoRows: '192px' }}>
           {GAMES.map((game) => (
             game.available ? (
               <Link 
@@ -119,10 +119,11 @@ function GameCard({ game, disabled = false }: { game: typeof GAMES[0]; disabled?
         borderRadius: '16px',
         border: `1px solid ${COLORS.sageMist}`,
         padding: '20px 16px',
-        minHeight: '160px',
+        height: '100%',
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
+        overflow: 'hidden',
       }}
     >
       {/* Icon */}
