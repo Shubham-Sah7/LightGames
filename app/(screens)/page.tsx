@@ -2,14 +2,6 @@ import Link from 'next/link'
 
 const GAMES = [
   {
-    emoji: '🧘',
-    title: 'Clear My Mind',
-    description: 'Tap away thoughts and find peace',
-    href: '/clear-my-mind',
-    category: 'MINDFUL',
-    available: true,
-  },
-  {
     emoji: '🌧',
     title: 'Rain Drop Cleanse',
     description: 'Release what no longer serves you',
@@ -34,20 +26,28 @@ const GAMES = [
     available: true,
   },
   {
-    emoji: '🌳',
-    title: 'Gratitude Tree',
-    description: 'Grow your tree with daily gratitude',
-    href: '/gratitude-tree',
-    category: 'GRATITUDE',
-    available: false,
-  },
-  {
     emoji: '✨',
     title: 'Firefly Catcher',
     description: 'Collect moments of light',
     href: '/firefly-catcher',
     category: 'FOCUS',
     available: true,
+  },
+  {
+    emoji: '🧘',
+    title: 'Clear My Mind',
+    description: 'Tap away thoughts and find peace',
+    href: '/clear-my-mind',
+    category: 'MINDFUL',
+    available: false,
+  },
+  {
+    emoji: '🌳',
+    title: 'Gratitude Tree',
+    description: 'Grow your tree with daily gratitude',
+    href: '/gratitude-tree',
+    category: 'GRATITUDE',
+    available: false,
   },
 ]
 
