@@ -219,3 +219,4 @@ This template includes comprehensive AI assistant guidelines in [CLAUDE.md](CLAU
 ---
 
 **Need help?** Check the documentation files or open an issue.
+# Deployment trigger
